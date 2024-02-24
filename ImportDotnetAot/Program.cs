@@ -11,10 +11,10 @@ namespace Program
         internal static partial int Add(int a, int b);
 
 
-        [DllImport(@"D:\repos\AOTDemo\AOTDemo\bin\Release\net7.0\win-x64\publish\AOTDemo.dll")]
+        [DllImport(@"D:\repos\AOTDemo\AOTDemo\bin\Release\net8.0\win-x64\publish\AOTDemo.dll")]
         public static extern IntPtr strOut();
 
-        [DllImport(@"D:\repos\AOTDemo\AOTDemo\bin\Release\net7.0\win-x64\publish\AOTDemo.dll")]
+        [DllImport(@"D:\repos\AOTDemo\AOTDemo\bin\Release\net8.0\win-x64\publish\AOTDemo.dll")]
         public static extern IntPtr strInOut(byte* data, int len);
 
 

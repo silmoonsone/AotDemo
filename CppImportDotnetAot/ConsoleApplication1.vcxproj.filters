@@ -15,12 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ConsoleApplication1.cpp">
+    <ClCompile Include="CppImportDotnetAot.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ConsoleApplication1.h">
+    <ClInclude Include="CppImportDotnetAot.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

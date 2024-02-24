@@ -21,7 +21,7 @@ namespace Program
         [UnmanagedCallersOnly(EntryPoint = "strOut")]
         public unsafe static byte* strOut()
         {
-            var str = "当前是在C#AOT中产生的，DLL直接输出String。";
+            var str = "当前是在C# AOT中产生的，DLL直接输出String。";
             var strData = Encoding.UTF8.GetBytes(str);
             var newStr = Encoding.UTF8.GetString(strData);
 
