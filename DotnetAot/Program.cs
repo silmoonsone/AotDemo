@@ -15,7 +15,8 @@ namespace Program
         public unsafe static char* strInOut(char* data, int len)
         {
             string str = new string((sbyte*)data, 0, len, Encoding.UTF8);
-            Console.WriteLine("c# strInOut input string: " + str);
+            string str2 = Marshal.PtrToStringUTF8((IntPtr)data, len);
+            Console.WriteLine("AOT DLL: c# strInOut input string: " + str2);
             return data;
         }
         [UnmanagedCallersOnly(EntryPoint = "strOut")]
@@ -25,7 +26,7 @@ namespace Program
             var strData = Encoding.UTF8.GetBytes(str);
             var newStr = Encoding.UTF8.GetString(strData);
 
-            Console.WriteLine("c# strOut string: " + newStr);
+            Console.WriteLine("AOT DLL: c# strOut string: " + newStr);
 
             fixed (byte* p = strData)
             {

@@ -27,7 +27,7 @@ int main()
 {
 	std::wstring_convert<std::codecvt_utf8<wchar_t>> convert;
 
-	char libPath[] = R"(..\DotnetAot\bin\Release\net8.0\win-x64\native\DotnetAot.dll)";
+	char libPath[] = R"(..\DotnetAot\bin\Debug\net8.0\publish\win-x64\DotnetAot.dll)";
 
 	FILE* file;
 	fopen_s(&file, libPath, "rb");
@@ -69,10 +69,10 @@ int main()
 		string pStr_StrOut = utf8_to_gbk((char*)rStrOut).c_str();
 		string pStr_Test = utf8_to_gbk((char*)rTest).c_str();
 
-
-		printf("1: %s\r\n", pStr_StrInOut.c_str());
-		printf("2: %s\r\n", pStr_StrOut.c_str());
-		printf("3: %s\r\n", pStr_Test.c_str());
+		printf("1: Add%d\r\n", nRet);
+		printf("2: %s\r\n", pStr_StrInOut.c_str());
+		printf("3: %s\r\n", pStr_StrOut.c_str());
+		printf("4: %s\r\n", pStr_Test.c_str());
 
 		std::cout << "data" << std::endl;
 	}

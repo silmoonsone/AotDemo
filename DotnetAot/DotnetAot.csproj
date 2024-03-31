@@ -21,6 +21,11 @@
     <IlcDisableReflection>true</IlcDisableReflection>
     <IlcDisableReflection>true</IlcDisableReflection>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+
+    <!--<IsAotCompatible>true</IsAotCompatible>
+    <StripSymbols>false</StripSymbols>
+    <EventSourceSupport>true</EventSourceSupport>-->
+
   </PropertyGroup>
 
   <ItemGroup>

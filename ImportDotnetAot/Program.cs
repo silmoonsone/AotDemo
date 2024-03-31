@@ -6,21 +6,32 @@ namespace Program
 {
     public unsafe partial class Program
     {
-        [LibraryImport("AOTDemo.dll", SetLastError = true)]
+        const string DllPath = @"..\..\..\..\DotnetAot\bin\Debug\net8.0\publish\win-x64\DotnetAot.dll";
+        //const string DllPath2 = @"..\..\..\..\x64\Release\CppDll.dll";
+
+        [LibraryImport(DllPath, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.I4)]
         internal static partial int Add(int a, int b);
 
+        //[DllImport(DllPath2)]
+        //public static extern int Add2(int a, int b);
 
-        [DllImport(@"D:\repos\AOTDemo\AOTDemo\bin\Release\net8.0\win-x64\publish\AOTDemo.dll")]
+        [DllImport(DllPath)]
         public static extern IntPtr strOut();
 
-        [DllImport(@"D:\repos\AOTDemo\AOTDemo\bin\Release\net8.0\win-x64\publish\AOTDemo.dll")]
+        [DllImport(DllPath)]
         public static extern IntPtr strInOut(byte* data, int len);
+
+        [DllImport(DllPath)]
+        public static extern IntPtr jsonIn(string json);
 
 
         public static void Main()
         {
-            //var result = Add(1, 2);
+            var result = Add(1, 2);
+            Console.WriteLine(result);
+
+            //result = Add2(1, 2);
             //Console.WriteLine(result);
 
             var result1 = strOut();

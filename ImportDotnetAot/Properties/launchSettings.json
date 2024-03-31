@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ImportDotnetAot": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
