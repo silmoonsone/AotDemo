@@ -9,6 +9,15 @@
     <!--AOT 相关-->
     <PublishAot>true</PublishAot>
     <_SuppressWinFormsTrimError>true</_SuppressWinFormsTrimError>
+    
+    <!--禁用发布时的裁剪-->
+    <!--<PublishTrimmed>false</PublishTrimmed>-->
+
+    <!--发布时包含 COM 互操作支持-->
+    <!--<TrimmerDefaultAction>link</TrimmerDefaultAction>
+    <PublishTrimmed>true</PublishTrimmed>
+    <IncludeComInteropSupport>true</IncludeComInteropSupport>-->
+    
   </PropertyGroup>
 
   <ItemGroup>
