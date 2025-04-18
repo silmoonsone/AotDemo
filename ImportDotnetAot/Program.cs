@@ -6,7 +6,7 @@ namespace Program
 {
     public unsafe partial class Program
     {
-        const string DllPath = @"..\..\..\..\DotnetAot\bin\Debug\net8.0\publish\win-x64\DotnetAot.dll";
+        const string DllPath = @"..\..\..\..\DotnetAot\bin\Debug\net9.0\publish\win-x64\DotnetAot.dll";
         //const string DllPath2 = @"..\..\..\..\x64\Release\CppDll.dll";
 
         [LibraryImport(DllPath, SetLastError = true)]
@@ -40,13 +40,24 @@ namespace Program
 
 
             var data = Encoding.UTF8.GetBytes("hello你好哈哈哈哈000");
+
+            {
+                byte* p = stackalloc byte[data.Length];
+                for (int i = 0; i < data.Length; i++)
+                {
+                    p[i] = data[i];
+                }
+                var result2 = strInOut(p, data.Length);
+                string ret2 = Marshal.PtrToStringUTF8(result2);
+                Console.WriteLine(ret2);
+            }
+
             fixed (byte* p = data)
             {
                 var result2 = strInOut(p, data.Length);
                 string ret2 = Marshal.PtrToStringUTF8(result2);
                 Console.WriteLine(ret2);
             }
-
         }
     }
 }

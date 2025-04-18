@@ -27,7 +27,7 @@ int main()
 {
 	std::wstring_convert<std::codecvt_utf8<wchar_t>> convert;
 
-	char libPath[] = R"(..\DotnetAot\bin\Debug\net8.0\publish\win-x64\DotnetAot.dll)";
+	char libPath[] = R"(..\DotnetAot\bin\Debug\net9.0\publish\win-x64\DotnetAot.dll)";
 
 	FILE* file;
 	fopen_s(&file, libPath, "rb");
