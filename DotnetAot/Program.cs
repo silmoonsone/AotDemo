@@ -15,8 +15,11 @@ namespace Program
         public unsafe static char* strInOut(char* data, int len)
         {
             string str = new string((sbyte*)data, 0, len, Encoding.UTF8);
+            Console.WriteLine("DotnetAot: cstrInOut str: " + str);
+
             string str2 = Marshal.PtrToStringUTF8((IntPtr)data, len);
-            Console.WriteLine("DotnetAot: c# strInOut input string: " + str2);
+            Console.WriteLine("DotnetAot: cstrInOut str2: " + str);
+
             return data;
         }
         [UnmanagedCallersOnly(EntryPoint = "strOut")]
@@ -26,7 +29,7 @@ namespace Program
             var strData = Encoding.UTF8.GetBytes(str);
             var newStr = Encoding.UTF8.GetString(strData);
 
-            Console.WriteLine("DotnetAot: c# strOut string: " + newStr);
+            Console.WriteLine("DotnetAot: strOut newStr: " + newStr);
 
             fixed (byte* p = strData)
             {

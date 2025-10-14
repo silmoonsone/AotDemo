@@ -29,28 +29,32 @@ namespace Program
         public static void Main()
         {
             var result = Add(1, 2);
-            Console.WriteLine(result);
+            Console.WriteLine($"Add result is {result}");
 
             //result = Add2(1, 2);
-            //Console.WriteLine(result);
+            //Console.WriteLine($"Add2 result is {result}");
 
             var result1 = strOut();
             string ret1 = Marshal.PtrToStringUTF8(result1);
             Console.WriteLine(ret1);
 
+            Console.WriteLine("================");
 
             var data = Encoding.UTF8.GetBytes("hello你好哈哈哈哈000");
 
             {
                 byte* p = stackalloc byte[data.Length];
-                for (int i = 0; i < data.Length; i++)
-                {
-                    p[i] = data[i];
-                }
+                //for (int i = 0; i < data.Length; i++)
+                //{
+                //    p[i] = data[i];
+                //}
+                //data.AsSpan().CopyTo(new Span<byte>(p, data.Length));
+                Marshal.Copy(data, 0, (IntPtr)p, data.Length);
                 var result2 = strInOut(p, data.Length);
                 string ret2 = Marshal.PtrToStringUTF8(result2);
                 Console.WriteLine(ret2);
             }
+            Console.WriteLine("================");
 
             fixed (byte* p = data)
             {
