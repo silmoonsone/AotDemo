@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetAot", "DotnetAot\Dotn
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImportDotnetAot", "ImportDotnetAot\ImportDotnetAot.csproj", "{BAD5DF94-0A70-4FE3-8B94-7E225D42858B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppImportDotnetAot", "CppImportDotnetAot\ConsoleApplication1.vcxproj", "{788B4322-6F2D-4429-9F65-526252473C28}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppImportDotnetAot", "CppImportDotnetAot\CppImportDotnetAot.vcxproj", "{788B4322-6F2D-4429-9F65-526252473C28}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsAot", "WinFormsAot\WinFormsAot.csproj", "{F8734B61-6B77-4551-BB47-5CC6BFAA9E9A}"
 EndProject
