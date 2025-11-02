@@ -95,17 +95,17 @@ namespace Program
 
             var testClassInstance = new TestClass();
 
-            // 测试实例方法回调 TestMethodB
+            // 测试实例方法回调 TestMethod
             CallbackDelegate callbackWrapper = testClassInstance.TestMethod;
             IntPtr callbackBPtr = Marshal.GetFunctionPointerForDelegate(callbackWrapper);
             int resultB = callBack(callbackBPtr, 10, 20);
-            Console.WriteLine($"callBackB(TestMethodB): {resultB} {(resultB == 30 ? "√" : "×")}\n");
+            Console.WriteLine($"callBackB(TestMethod): {resultB} {(resultB == 30 ? "√" : "×")}\n");
 
-            // 测试静态方法回调 TestMethodC
+            // 测试静态方法回调 TestMethodStatic
             CallbackDelegate callbackStaticWrapper = TestClass.TestMethodStatic;
             IntPtr callbackCPtr = Marshal.GetFunctionPointerForDelegate(callbackStaticWrapper);
             int resultC = callBackStatic(callbackCPtr, 30, 40);
-            Console.WriteLine($"callBackC(TestMethodC): {resultC} {(resultC == 70 ? "√" : "×")}\n");
+            Console.WriteLine($"callBackC(TestMethodStatic): {resultC} {(resultC == 70 ? "√" : "×")}\n");
         }
 
         /// <summary>

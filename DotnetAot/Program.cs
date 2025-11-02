@@ -63,7 +63,7 @@ namespace Program
         #region 回调函数
 
         /// <summary>
-        /// 调用回调 B - 直接接受函数指针参数（用于调用实例方法 TestMethodB）
+        /// 调用回调 B - 直接接受函数指针参数（用于调用实例方法 TestMethod）
         /// </summary>
         [UnmanagedCallersOnly(EntryPoint = "callBack")]
         public unsafe static int callBack(delegate* unmanaged<int, int, int> callback, int a, int b)
@@ -71,15 +71,15 @@ namespace Program
             if (callback != null)
             {
                 int result = callback(a, b);
-                Console.WriteLine($"DotnetAot: callBackB 调用成功，参数: a={a}, b={b}, 返回值={result}");
+                Console.WriteLine($"DotnetAot: callBack 调用成功，参数: a={a}, b={b}, 返回值={result}");
                 return result;
             }
-            Console.WriteLine("DotnetAot: callBackB 回调指针为空");
+            Console.WriteLine("DotnetAot: callBack 回调指针为空");
             return -1;
         }
 
         /// <summary>
-        /// 调用回调 C - 直接接受函数指针参数（用于调用静态方法 TestMethodC）
+        /// 调用回调 C - 直接接受函数指针参数（用于调用静态方法 TestMethodStatic）
         /// </summary>
         [UnmanagedCallersOnly(EntryPoint = "callBackStatic")]
         public unsafe static int callBackStatic(delegate* unmanaged<int, int, int> callback, int a, int b)
@@ -87,10 +87,10 @@ namespace Program
             if (callback != null)
             {
                 int result = callback(a, b);
-                Console.WriteLine($"DotnetAot: callBackC 调用成功，参数: a={a}, b={b}, 返回值={result}");
+                Console.WriteLine($"DotnetAot: callBackStatic 调用成功，参数: a={a}, b={b}, 返回值={result}");
                 return result;
             }
-            Console.WriteLine("DotnetAot: callBackC 回调指针为空");
+            Console.WriteLine("DotnetAot: callBackStatic 回调指针为空");
             return -1;
         }
 
