@@ -36,9 +36,6 @@ namespace Program
         [DllImport(DllPath)]
         public static extern int callBack(IntPtr callback, int a, int b);
 
-        [DllImport(DllPath)]
-        public static extern int callBackStatic(IntPtr callback, int a, int b);
-
         #endregion
 
 
@@ -98,14 +95,14 @@ namespace Program
             // 测试实例方法回调 TestMethod
             CallbackDelegate callbackWrapper = testClassInstance.TestMethod;
             IntPtr callbackBPtr = Marshal.GetFunctionPointerForDelegate(callbackWrapper);
-            int resultB = callBack(callbackBPtr, 10, 20);
-            Console.WriteLine($"callBackB(TestMethod): {resultB} {(resultB == 30 ? "√" : "×")}\n");
+            int callbackResult = callBack(callbackBPtr, 10, 20);
+            Console.WriteLine($"callBack(TestMethod): {callbackResult} {(callbackResult == 30 ? "√" : "×")}\n");
 
             // 测试静态方法回调 TestMethodStatic
             CallbackDelegate callbackStaticWrapper = TestClass.TestMethodStatic;
             IntPtr callbackCPtr = Marshal.GetFunctionPointerForDelegate(callbackStaticWrapper);
-            int resultC = callBackStatic(callbackCPtr, 30, 40);
-            Console.WriteLine($"callBackC(TestMethodStatic): {resultC} {(resultC == 70 ? "√" : "×")}\n");
+            int staticCallbackResult = callBack(callbackCPtr, 30, 40);
+            Console.WriteLine($"callBack(TestMethodStatic): {staticCallbackResult} {(staticCallbackResult == 70 ? "√" : "×")}\n");
         }
 
         /// <summary>
@@ -176,16 +173,15 @@ namespace Program
         /// </summary>
         public class TestClass
         {
-
             public int TestMethod(int a, int b)
             {
-                Console.WriteLine($"TestClass: TestMethodB 被调用，参数: a={a}, b={b}");
+                Console.WriteLine($"TestClass: TestMethod 被调用，参数: a={a}, b={b}");
                 return a + b;
             }
 
             public static int TestMethodStatic(int a, int b)
             {
-                Console.WriteLine($"TestClass: TestMethodC (静态) 被调用，参数: a={a}, b={b}");
+                Console.WriteLine($"TestClass: TestMethodStatic (静态) 被调用，参数: a={a}, b={b}");
                 return a + b;
             }
         }

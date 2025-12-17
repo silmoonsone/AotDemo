@@ -71,27 +71,14 @@ namespace Program
             if (callback != null)
             {
                 int result = callback(a, b);
-                Console.WriteLine($"DotnetAot: callBack 调用成功，参数: a={a}, b={b}, 返回值={result}");
+                Console.WriteLine($"DotnetAot: 方法调用成功，参数: a={a}, b={b}, 返回值={result}");
                 return result;
             }
-            Console.WriteLine("DotnetAot: callBack 回调指针为空");
-            return -1;
-        }
-
-        /// <summary>
-        /// 调用回调 C - 直接接受函数指针参数（用于调用静态方法 TestMethodStatic）
-        /// </summary>
-        [UnmanagedCallersOnly(EntryPoint = "callBackStatic")]
-        public unsafe static int callBackStatic(delegate* unmanaged<int, int, int> callback, int a, int b)
-        {
-            if (callback != null)
+            else
             {
-                int result = callback(a, b);
-                Console.WriteLine($"DotnetAot: callBackStatic 调用成功，参数: a={a}, b={b}, 返回值={result}");
-                return result;
+                Console.WriteLine("DotnetAot: 回调方法指针为空");
+                return -1;
             }
-            Console.WriteLine("DotnetAot: callBackStatic 回调指针为空");
-            return -1;
         }
 
         #endregion
